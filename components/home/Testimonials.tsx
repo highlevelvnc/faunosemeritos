@@ -14,9 +14,7 @@ export default function Testimonials() {
   };
 
   const prev = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? testimonials.length - 1 : prev - 1
-    );
+    setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
   };
 
   const current = testimonials[currentIndex];
@@ -42,9 +40,11 @@ export default function Testimonials() {
           >
             Depoimentos
           </motion.span>
+
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-ice mb-6">
             O Que Dizem os Nossos Clientes
           </h2>
+
           <p className="text-xl text-ice/60 max-w-3xl mx-auto">
             A satisfação dos nossos clientes é a nossa maior conquista
           </p>
@@ -70,16 +70,13 @@ export default function Testimonials() {
                 {/* Stars */}
                 <div className="flex gap-1 mb-6 justify-center">
                   {Array.from({ length: current.rating }).map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-6 h-6 fill-electric text-electric"
-                    />
+                    <Star key={i} className="w-6 h-6 fill-electric text-electric" />
                   ))}
                 </div>
 
-                {/* Text */}
+                {/* Text (✅ corrigido: sem aspas não-escapadas) */}
                 <p className="text-xl md:text-2xl text-ice leading-relaxed text-center mb-8 italic">
-                  "{current.text}"
+                  &ldquo;{current.text}&rdquo;
                 </p>
 
                 {/* Author */}
@@ -93,6 +90,7 @@ export default function Testimonials() {
                       sizes="64px"
                     />
                   </div>
+
                   <div className="text-center md:text-left">
                     <div className="font-display font-bold text-ice text-lg">
                       {current.name}
@@ -122,9 +120,7 @@ export default function Testimonials() {
                     key={index}
                     onClick={() => setCurrentIndex(index)}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      index === currentIndex
-                        ? "bg-electric w-8"
-                        : "bg-ice/30 hover:bg-ice/50"
+                      index === currentIndex ? "bg-electric w-8" : "bg-ice/30 hover:bg-ice/50"
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />
@@ -156,12 +152,14 @@ export default function Testimonials() {
             </div>
             <div className="text-ice/60">Avaliação Média</div>
           </div>
+
           <div className="text-center glass p-6 rounded-2xl">
             <div className="font-display text-4xl font-bold gradient-text mb-2">
               98%
             </div>
             <div className="text-ice/60">Taxa de Satisfação</div>
           </div>
+
           <div className="text-center glass p-6 rounded-2xl">
             <div className="font-display text-4xl font-bold gradient-text mb-2">
               450+
